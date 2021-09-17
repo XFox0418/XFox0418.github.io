@@ -14,7 +14,7 @@
 
 
 
-<title>Android | Hexo</title>
+<title>黑客精神 | Hexo</title>
 
 
 
@@ -100,11 +100,19 @@
     <div class="post-info">
         <div class="tag-list">
             
+                
+                    <span class="post-tag">
+                        <a href="/tags/Java-%E9%80%86%E5%90%91/">
+                            Java 逆向
+                        </a>
+                    </span>    
+                           
+            
         </div>
         <div class="post-title">
             
             
-                Android
+                黑客精神
             
             
         </div>
@@ -121,6 +129,14 @@
     <div class="post-content">
     <p>黑客精神</p>
 <p>打开界面输入注册码后弹出：</p>
+<p>categories: </p>
+<ul>
+<li>web前端<br>tags:</li>
+<li>jQuery</li>
+<li>表格</li>
+<li>表单验证</li>
+</ul>
+<hr>
 <p><img src="https://img-blog.csdnimg.cn/16cbfd3445cf4584a9bf9d909df9fd2d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
 <p>JEB分析MainActivity:onCreat 函数中出现了刚刚的已注册，通过MyApp.m来判断是否已经注册</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle arg6)</span> </span>&#123;</span><br><span class="line">    String v2;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(arg6);</span><br><span class="line">    <span class="keyword">this</span>.setContentView(<span class="number">0x7F04001A</span>);</span><br><span class="line">    String v1 = <span class="string">&quot;Xman&quot;</span>;</span><br><span class="line">    Log.d(<span class="string">&quot;com.gdufs.xman m=&quot;</span>, v1);</span><br><span class="line">    <span class="keyword">this</span>.getApplication();</span><br><span class="line">    <span class="keyword">int</span> v0 = MyApp.m;</span><br><span class="line">    <span class="keyword">if</span>(v0 == <span class="number">0</span>) &#123;</span><br><span class="line">        v2 = <span class="string">&quot;未注册&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(v0 == <span class="number">1</span>) &#123;</span><br><span class="line">        v2 = <span class="string">&quot;已注册&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        v2 = <span class="string">&quot;已混乱&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.setTitle(v1 + v2);</span><br><span class="line">    <span class="keyword">this</span>.btn1 = <span class="keyword">this</span>.findViewById(<span class="number">0x7F0B0054</span>);</span><br><span class="line">    <span class="keyword">this</span>.btn1.setOnClickListener(<span class="keyword">new</span> View$OnClickListener() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View arg5)</span> </span>&#123;</span><br><span class="line">            MainActivity.<span class="keyword">this</span>.getApplication();</span><br><span class="line">            <span class="keyword">if</span>(MyApp.m == <span class="number">0</span>) &#123;</span><br><span class="line">                MainActivity.<span class="keyword">this</span>.doRegister();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                MainActivity.<span class="keyword">this</span>.getApplication().work();</span><br><span class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>.getApplicationContext(), MainActivity.workString, <span class="number">0</span>).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
