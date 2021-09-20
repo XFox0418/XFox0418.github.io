@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+
+
+<title>notsequence | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
+</style>
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/frame.js"></script>
+    
+
+
+
+
+
+
+
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body>
+    <div class="mask-border">
+    </div>
+
+    <div class="wrapper">
+
+      <div class="header">
+  <div class="flex-container">
+    <div class="header-inner">
+      <div class="site-brand-container">
+        <a href="/">XFox.blog</a>
+      </div>
+      <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">
+        Menu
+      </div>
+      <nav class="site-nav">
+        <ul class="menu-list">
+          
+            
+              <li class="menu-item">
+                <a href="/">Home</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/archives/">Archive</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/categories/gallery/">Gallery</a>
+              </li> 
+                   
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main">
+        <div class="flex-container">
+          <article id="post">
+
+  
+    <div class="post-head">
+    <div class="post-info">
+        <div class="tag-list">
+            
+                
+                    <span class="post-tag">
+                        <a href="/tags/PC-reverse/">
+                            PC reverse
+                        </a>
+                    </span>    
+                           
+            
+        </div>
+        <div class="post-title">
+            
+            
+                notsequence
+            
+            
+        </div>
+        <span class="post-date">
+            9月 20, 2021
+        </span>
+    </div>
+    <div class="post-img">
+        
+            <div class="h-line-primary"></div>
+              
+    </div>
+</div>
+    <div class="post-content">
+    <p>notsequence<br>打开是EIF文件，直接拖进IDA查看字符串<br><img src="https://img-blog.csdnimg.cn/3c21567382da4186b0091ebe32bade35.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>反汇编找到main函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  _DWORD *v0; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">int</span> v2; <span class="comment">// [esp+14h] [ebp-Ch]</span></span><br><span class="line">  _DWORD *v3; <span class="comment">// [esp+1Ch] [ebp-4h]</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">memset</span>(&amp;unk_8049BE0, <span class="number">0</span>, <span class="number">0x4000</span>u);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;input raw_flag please:&quot;</span>);</span><br><span class="line">  v3 = &amp;unk_8049BE0;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    v0 = v3++;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, v0);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( *(v3 - <span class="number">1</span>) );</span><br><span class="line">  v2 = sub_80486CD(&amp;unk_8049BE0);</span><br><span class="line">  <span class="keyword">if</span> ( v2 == <span class="number">-1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;check1 not pass&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( (<span class="keyword">unsigned</span> __int8)sub_8048783(&amp;unk_8049BE0, v2) != <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;check2 not pass!&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( v2 == <span class="number">20</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Congratulations! fl4g is :\nRCTF&#123;md5(/*what you input without space or \\n~*/)&#125;&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先要满足<code>check1</code>和<code>check2</code>即<code>sub_80486CD</code>和<code>sub_80486CD</code><br>最后满足<code>v2 == 20 </code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  _DWORD *v0; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">int</span> v2; <span class="comment">// [esp+14h] [ebp-Ch]</span></span><br><span class="line">  _DWORD *v3; <span class="comment">// [esp+1Ch] [ebp-4h]</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">memset</span>(&amp;unk_8049BE0, <span class="number">0</span>, <span class="number">0x4000</span>u);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;input raw_flag please:&quot;</span>);</span><br><span class="line">  v3 = &amp;unk_8049BE0;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    v0 = v3++;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, v0);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( *(v3 - <span class="number">1</span>) );</span><br><span class="line">  v2 = sub_80486CD(&amp;unk_8049BE0);</span><br><span class="line">  <span class="keyword">if</span> ( v2 == <span class="number">-1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;check1 not pass&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( (<span class="keyword">unsigned</span> __int8)sub_8048783(&amp;unk_8049BE0, v2) != <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;check2 not pass!&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( v2 == <span class="number">20</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Congratulations! fl4g is :\nRCTF&#123;md5(/*what you input without space or \\n~*/)&#125;&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>sub_80486CD</code>：第一个for循环，i是求和递增，就是i=0，1，3，6，10….<br>第二个for循环首先将数组进行分隔，根据上面的i分成a[1],a[2],a[4],a[7]….<br>再将分隔中间的数字进行相加，v5=0，1，2，3，4…..代表着每一次相加的个数即每个隔间的个数<br>if判断语句1往左移动0001=1，0010=2，0100=4，1000=8依次类推，v3就代表着每个隔间的和</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">v5 = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">1024</span> &amp;&amp; *(_DWORD *)(<span class="number">4</span> * i + a1); i = v5 * (v5 + <span class="number">1</span>) / <span class="number">2</span> )</span><br><span class="line"> &#123;</span><br><span class="line">   v3 = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span> ( j = <span class="number">0</span>; j &lt;= v5; ++j )</span><br><span class="line">     v3 += *(_DWORD *)(<span class="number">4</span> * (j + i) + a1);</span><br><span class="line">   <span class="keyword">if</span> ( <span class="number">1</span> &lt;&lt; v5 != v3 )</span><br><span class="line">     <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">   ++v5;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> v5;</span><br></pre></td></tr></table></figure>
+<p><code>sub_80486CD</code>:a2即上面的v5，a2-1就是去除最后一行把每一列的数字进行相加，if判断是与后一列的最后一个数字相等</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">v6 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">1</span>; i &lt; a2; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    v4 = <span class="number">0</span>;</span><br><span class="line">    v3 = i - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> ( !*(_DWORD *)(<span class="number">4</span> * i + a1) )</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ( a2 - <span class="number">1</span> &gt; v3 )</span><br><span class="line">    &#123;</span><br><span class="line">      v4 += *(_DWORD *)(<span class="number">4</span> * (v3 * (v3 + <span class="number">1</span>) / <span class="number">2</span> + v6) + a1);</span><br><span class="line">      ++v3;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( *(_DWORD *)(<span class="number">4</span> * (v3 * (v3 + <span class="number">1</span>) / <span class="number">2</span> + i) + a1) != v4 )</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    ++v6;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>杨辉三角简图：<br><img src="https://img-blog.csdnimg.cn/b472b99ba629405a97ac9a9f13aa14b3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>通过main函数中的<code>v2 == 20</code>可得到需要20层的杨辉三角<br>写脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">yanghui</span>(<span class="params"><span class="built_in">max</span></span>):</span></span><br><span class="line">    L = [<span class="number">1</span>]</span><br><span class="line">    <span class="built_in">print</span>(L)</span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; <span class="built_in">max</span>:</span><br><span class="line">        L.append(<span class="number">0</span>)</span><br><span class="line">        L = [L[i-<span class="number">1</span>] + L[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(L))]</span><br><span class="line">        <span class="built_in">print</span>(L)</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> l <span class="keyword">in</span> yanghui(<span class="number">19</span>):</span><br><span class="line">    <span class="built_in">print</span>(l)</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">6</span>, <span class="number">15</span>, <span class="number">20</span>, <span class="number">15</span>, <span class="number">6</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">7</span>, <span class="number">21</span>, <span class="number">35</span>, <span class="number">35</span>, <span class="number">21</span>, <span class="number">7</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">8</span>, <span class="number">28</span>, <span class="number">56</span>, <span class="number">70</span>, <span class="number">56</span>, <span class="number">28</span>, <span class="number">8</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">9</span>, <span class="number">36</span>, <span class="number">84</span>, <span class="number">126</span>, <span class="number">126</span>, <span class="number">84</span>, <span class="number">36</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">10</span>, <span class="number">45</span>, <span class="number">120</span>, <span class="number">210</span>, <span class="number">252</span>, <span class="number">210</span>, <span class="number">120</span>, <span class="number">45</span>, <span class="number">10</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">11</span>, <span class="number">55</span>, <span class="number">165</span>, <span class="number">330</span>, <span class="number">462</span>, <span class="number">462</span>, <span class="number">330</span>, <span class="number">165</span>, <span class="number">55</span>, <span class="number">11</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">12</span>, <span class="number">66</span>, <span class="number">220</span>, <span class="number">495</span>, <span class="number">792</span>, <span class="number">924</span>, <span class="number">792</span>, <span class="number">495</span>, <span class="number">220</span>, <span class="number">66</span>, <span class="number">12</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">13</span>, <span class="number">78</span>, <span class="number">286</span>, <span class="number">715</span>, <span class="number">1287</span>, <span class="number">1716</span>, <span class="number">1716</span>, <span class="number">1287</span>, <span class="number">715</span>, <span class="number">286</span>, <span class="number">78</span>, <span class="number">13</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">14</span>, <span class="number">91</span>, <span class="number">364</span>, <span class="number">1001</span>, <span class="number">2002</span>, <span class="number">3003</span>, <span class="number">3432</span>, <span class="number">3003</span>, <span class="number">2002</span>, <span class="number">1001</span>, <span class="number">364</span>, <span class="number">91</span>, <span class="number">14</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">15</span>, <span class="number">105</span>, <span class="number">455</span>, <span class="number">1365</span>, <span class="number">3003</span>, <span class="number">5005</span>, <span class="number">6435</span>, <span class="number">6435</span>, <span class="number">5005</span>, <span class="number">3003</span>, <span class="number">1365</span>, <span class="number">455</span>, <span class="number">105</span>, <span class="number">15</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">16</span>, <span class="number">120</span>, <span class="number">560</span>, <span class="number">1820</span>, <span class="number">4368</span>, <span class="number">8008</span>, <span class="number">11440</span>, <span class="number">12870</span>, <span class="number">11440</span>, <span class="number">8008</span>, <span class="number">4368</span>, <span class="number">1820</span>, <span class="number">560</span>, <span class="number">120</span>, <span class="number">16</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">17</span>, <span class="number">136</span>, <span class="number">680</span>, <span class="number">2380</span>, <span class="number">6188</span>, <span class="number">12376</span>, <span class="number">19448</span>, <span class="number">24310</span>, <span class="number">24310</span>, <span class="number">19448</span>, <span class="number">12376</span>, <span class="number">6188</span>, <span class="number">2380</span>, <span class="number">680</span>, <span class="number">136</span>, <span class="number">17</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">18</span>, <span class="number">153</span>, <span class="number">816</span>, <span class="number">3060</span>, <span class="number">8568</span>, <span class="number">18564</span>, <span class="number">31824</span>, <span class="number">43758</span>, <span class="number">48620</span>, <span class="number">43758</span>, <span class="number">31824</span>, <span class="number">18564</span>, <span class="number">8568</span>, <span class="number">3060</span>, <span class="number">816</span>, <span class="number">153</span>, <span class="number">18</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">19</span>, <span class="number">171</span>, <span class="number">969</span>, <span class="number">3876</span>, <span class="number">11628</span>, <span class="number">27132</span>, <span class="number">50388</span>, <span class="number">75582</span>, <span class="number">92378</span>, <span class="number">92378</span>, <span class="number">75582</span>, <span class="number">50388</span>, <span class="number">27132</span>, <span class="number">11628</span>, <span class="number">3876</span>, <span class="number">969</span>, <span class="number">171</span>, <span class="number">19</span>, <span class="number">1</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>将数字连在一起，进行MD5加密，就得到最终flag<br><img src="https://img-blog.csdnimg.cn/d0926d40366a4c5e86878e7b9e14ed53.png" alt="在这里插入图片描述"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">37894beff1c632010dd6d524aa9604db</span><br></pre></td></tr></table></figure>
+
+</div> 
+
+<script>
+    window.onload = detectors();
+</script>
+    <div class="post-footer">
+    <div class="h-line-primary"></div>
+    <nav class="post-nav">
+        <div class="prev-item">
+           
+        </div>
+        <div class="next-item">
+            
+                <div class="icon arrow-right"></div>
+                <div class="post-link">
+                  <a href="/2021/09/19/Ph0en1x-100/">Next</a>  
+                </div>  
+            
+        </div>
+    </nav>
+</div>
+
+  
+</article>
+        </div>
+      </div>
+      
+      <div class="footer">
+    <div class="flex-container">
+        <div class="footer-text">
+            
+                Customized content.
+                <br>
+            
+            
+                © XFox | 
+            
+            
+                Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://hexo.io/">Frame</a>
+                
+        </div>
+    </div>
+</div>
+
+    </div>
+
+  </body>
+</html>
