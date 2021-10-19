@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+
+
+<title>ternary | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
+</style>
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/frame.js"></script>
+    
+
+
+
+
+
+
+
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body>
+    <div class="mask-border">
+    </div>
+
+    <div class="wrapper">
+
+      <div class="header">
+  <div class="flex-container">
+    <div class="header-inner">
+      <div class="site-brand-container">
+        <a href="/">XFox.blog</a>
+      </div>
+      <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">
+        Menu
+      </div>
+      <nav class="site-nav">
+        <ul class="menu-list">
+          
+            
+              <li class="menu-item">
+                <a href="/">Home</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/archives/">Archive</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/categories/gallery/">Gallery</a>
+              </li> 
+                   
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main">
+        <div class="flex-container">
+          <article id="post">
+
+  
+    <div class="post-head">
+    <div class="post-info">
+        <div class="tag-list">
+            
+                
+                    <span class="post-tag">
+                        <a href="/tags/PC-reverse/">
+                            PC reverse
+                        </a>
+                    </span>    
+                           
+            
+        </div>
+        <div class="post-title">
+            
+            
+                ternary
+            
+            
+        </div>
+        <span class="post-date">
+            10月 19, 2021
+        </span>
+    </div>
+    <div class="post-img">
+        
+            <div class="h-line-primary"></div>
+              
+    </div>
+</div>
+    <div class="post-content">
+    <p>文本文档内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;CoolerCoolCoolestCoolerCoolCoolerCoolerCoolCoolCoolCoolerCoolCoolerCoolestCoolerCoolerCoolCoolestCoolerCoolerCoolerCoolerCoolerCoolestCoolCoolCoolestCoolestCoolerCoolerCoolCoolerCoolestCoolerCoolerCoolerCoolCoolerCoolerCoolestCoolCoolerCoolestCoolestCoolerCoolerCoolerCoolCoolestCoolCoolerCoolCoolestCoolCoolestCoolerCoolCoolerCoolerCoolestCoolerCoolCoolestCoolerCoolerCoolCoolerCoolestCoolerCoolCoolCoolerCoolestCoolerCoolCoolerCoolCoolestCoolCoolerCoolerCoolCoolerCoolerCoolestCoolCoolestCoolerCoolCoolerCoolerCoolCoolerCoolerCoolestCoolCoolestCoolCoolCoolerCoolCoolestCoolerCoolestCoolCoolerCoolerCoolCoolestCoolCoolerCoolerCoolCoolCoolestCoolCoolerCoolestCoolestCoolerCoolerCoolerCoolCoolestCoolCoolerCoolCoolCoolestCoolestCoolerCoolerCoolerCoolestCoolest&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>.exe文件拖进IDA查看main函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> __main();</span><br><span class="line">  <span class="built_in">memset</span>(Destination, <span class="number">0</span>, <span class="keyword">sizeof</span>(Destination));</span><br><span class="line">  <span class="built_in">strcpy</span>(Destination, argv[<span class="number">1</span>]);</span><br><span class="line">  D2T(Destination); <span class="comment">//一次加密</span></span><br><span class="line">  v8 = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">memset</span>(cipertext, <span class="number">0</span>, <span class="keyword">sizeof</span>(cipertext));</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; ; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    v4 = <span class="built_in">strlen</span>(terCode);</span><br><span class="line">    <span class="keyword">if</span> ( v4 &lt;= i )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    v3 = terCode[i];</span><br><span class="line">    <span class="keyword">if</span> ( v3 == <span class="number">50</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">strncpy</span>(&amp;cipertext[v8], &amp;keys[<span class="number">10</span>], <span class="number">7u</span>);<span class="comment">//keys中取7位复制到cipertext中</span></span><br><span class="line">      v8 += <span class="number">7</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 &lt;= <span class="number">50</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> ( v3 == <span class="number">48</span> )</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">strncpy</span>(&amp;cipertext[v8], keys, <span class="number">4u</span>);<span class="comment">//keys中取4位复制到cipertext中</span></span><br><span class="line">        v8 += <span class="number">4</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == <span class="number">49</span> )</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">strncpy</span>(&amp;cipertext[v8], &amp;keys[<span class="number">4</span>], <span class="number">6u</span>);<span class="comment">//keys中取6位复制到cipertext中</span></span><br><span class="line">        v8 += <span class="number">6</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, cipertext);<span class="comment">//输出二次加密后字符串，也就是文本文档中字符串</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查看一次加密函数<code>D2T</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">v3 = <span class="built_in">strlen</span>(Str);</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; ; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    result = i;</span><br><span class="line">    <span class="keyword">if</span> ( i &gt;= v3 )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="built_in">memset</span>(Source, <span class="number">0</span>, <span class="keyword">sizeof</span>(Source));</span><br><span class="line">    d2t(Str[i], (<span class="keyword">int</span>)Source); <span class="comment">//又一个加密函数</span></span><br><span class="line">    <span class="built_in">strncpy</span>(&amp;terCode[<span class="number">5</span> * i], Source, <span class="number">5u</span>);<span class="comment">//五次循环</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">result = a1;</span><br><span class="line"> v4 = a1;</span><br><span class="line"> <span class="keyword">for</span> ( i = <span class="number">4</span>; i &gt;= <span class="number">0</span>; --i )</span><br><span class="line"> &#123;</span><br><span class="line">   *(_BYTE *)(i + a2) = (<span class="keyword">char</span>)v4 % <span class="number">3</span> + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">   result = v4 / <span class="number">3</span>;</span><br><span class="line">   v4 /= <span class="number">3</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+<p>写脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">str1=<span class="string">&#x27;CoolerCoolCoolestCoolerCoolCoolerCoolerCoolCoolCoolCoolerCoolCoolerCoolestCoolerCoolerCoolCoolestCoolerCoolerCoolerCoolerCoolerCoolestCoolCoolCoolestCoolestCoolerCoolerCoolCoolerCoolestCoolerCoolerCoolerCoolCoolerCoolerCoolestCoolCoolerCoolestCoolestCoolerCoolerCoolerCoolCoolestCoolCoolerCoolCoolestCoolCoolestCoolerCoolCoolerCoolerCoolestCoolerCoolCoolestCoolerCoolerCoolCoolerCoolestCoolerCoolCoolCoolerCoolestCoolerCoolCoolerCoolCoolestCoolCoolerCoolerCoolCoolerCoolerCoolestCoolCoolestCoolerCoolCoolerCoolerCoolCoolerCoolerCoolestCoolCoolestCoolCoolCoolerCoolCoolestCoolerCoolestCoolCoolerCoolerCoolCoolestCoolCoolerCoolerCoolCoolCoolestCoolCoolerCoolestCoolestCoolerCoolerCoolerCoolCoolestCoolCoolerCoolCoolCoolestCoolestCoolerCoolerCoolerCoolestCoolest&#x27;</span></span><br><span class="line">str2=str1.replace(<span class="string">&#x27;Coolest&#x27;</span>,<span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">str3=str2.replace(<span class="string">&#x27;Cooler&#x27;</span>,<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line"><span class="built_in">str</span>=str3.replace(<span class="string">&#x27;Cool&#x27;</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">flag=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(<span class="built_in">str</span>)//<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">        b = a//<span class="number">3</span></span><br><span class="line">        c = b//<span class="number">3</span></span><br><span class="line">        d = c//<span class="number">3</span></span><br><span class="line">        e = d//<span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> a % <span class="number">3</span>==<span class="built_in">int</span>(<span class="built_in">str</span>[i*<span class="number">5</span>+<span class="number">4</span>]) <span class="keyword">and</span> b % <span class="number">3</span>==<span class="built_in">int</span>(<span class="built_in">str</span>[i*<span class="number">5</span>+<span class="number">3</span>]) <span class="keyword">and</span> c % <span class="number">3</span>==<span class="built_in">int</span>(<span class="built_in">str</span>[i*<span class="number">5</span>+<span class="number">2</span>]) <span class="keyword">and</span> d % <span class="number">3</span>==<span class="built_in">int</span>(<span class="built_in">str</span>[i*<span class="number">5</span>+<span class="number">1</span>]) <span class="keyword">and</span> e % <span class="number">3</span>==<span class="built_in">int</span>(<span class="built_in">str</span>[i*<span class="number">5</span>]):</span><br><span class="line">           flag+=<span class="built_in">chr</span>(a)</span><br><span class="line">           <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;L1_4re_g00d_@_7Ern4rY&#125;</span><br></pre></td></tr></table></figure>
+
+</div> 
+
+<script>
+    window.onload = detectors();
+</script>
+    <div class="post-footer">
+    <div class="h-line-primary"></div>
+    <nav class="post-nav">
+        <div class="prev-item">
+           
+        </div>
+        <div class="next-item">
+            
+                <div class="icon arrow-right"></div>
+                <div class="post-link">
+                  <a href="/2021/10/10/Windows-Reverse2/">Next</a>  
+                </div>  
+            
+        </div>
+    </nav>
+</div>
+
+  
+</article>
+        </div>
+      </div>
+      
+      <div class="footer">
+    <div class="flex-container">
+        <div class="footer-text">
+            
+                Customized content.
+                <br>
+            
+            
+                © XFox | 
+            
+            
+                Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://hexo.io/">Frame</a>
+                
+        </div>
+    </div>
+</div>
+
+    </div>
+
+  </body>
+</html>
