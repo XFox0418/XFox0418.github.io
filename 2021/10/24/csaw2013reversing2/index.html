@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+
+
+<title>csaw2013reversing2 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
+</style>
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/frame.js"></script>
+    
+
+
+
+
+
+
+
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body>
+    <div class="mask-border">
+    </div>
+
+    <div class="wrapper">
+
+      <div class="header">
+  <div class="flex-container">
+    <div class="header-inner">
+      <div class="site-brand-container">
+        <a href="/">XFox.blog</a>
+      </div>
+      <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">
+        Menu
+      </div>
+      <nav class="site-nav">
+        <ul class="menu-list">
+          
+            
+              <li class="menu-item">
+                <a href="/">Home</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/archives/">Archive</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/categories/gallery/">Gallery</a>
+              </li> 
+                   
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main">
+        <div class="flex-container">
+          <article id="post">
+
+  
+    <div class="post-head">
+    <div class="post-info">
+        <div class="tag-list">
+            
+                
+                    <span class="post-tag">
+                        <a href="/tags/PC-reverse/">
+                            PC reverse
+                        </a>
+                    </span>    
+                           
+            
+        </div>
+        <div class="post-title">
+            
+            
+                csaw2013reversing2
+            
+            
+        </div>
+        <span class="post-date">
+            10月 24, 2021
+        </span>
+    </div>
+    <div class="post-img">
+        
+            <div class="h-line-primary"></div>
+              
+    </div>
+</div>
+    <div class="post-content">
+    <p>csaw2013reversing2</p>
+<ol>
+<li><a href="#1">IDA分析写脚本</a></li>
+<li><a href="#2">OD调试</a></li>
+<li><a href="#3">IDA修改汇编代码</a></li>
+</ol>
+<div id="1">IDA分析写脚本</div>
+
+<p>方法一：写脚本运行得到flag<br><img src="https://img-blog.csdnimg.cn/d27e344b1f8f4dd48d219b92a10bf5c1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>查看main函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> hHeap = HeapCreate(<span class="number">0x40000</span>u, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  lpMem = (CHAR *)HeapAlloc(hHeap, <span class="number">8u</span>, SourceSize + <span class="number">1</span>);</span><br><span class="line">  memcpy_s(lpMem, SourceSize, &amp;unk_409B10, SourceSize);</span><br><span class="line">  <span class="comment">//memcpy_s是memory copy safe的缩写，意为安全内存复制，用于内存拷贝。</span></span><br><span class="line"><span class="comment">//memcpy_s(目的内存地址,目的内存最大长度, 源内存地址,要拷贝的长度)</span></span><br><span class="line">  <span class="keyword">if</span> ( !sub_40102A() &amp;&amp; !IsDebuggerPresent() )</span><br><span class="line">  &#123;</span><br><span class="line">    MessageBoxA(<span class="number">0</span>, lpMem + <span class="number">1</span>, <span class="string">&quot;Flag&quot;</span>, <span class="number">2u</span>);</span><br><span class="line">    <span class="comment">//MessageBoxA(0, &quot;第一个C窗体程序&quot;, &quot;消息&quot;, 3);</span></span><br><span class="line">	<span class="comment">//参数1：系统弹出</span></span><br><span class="line">	<span class="comment">//	参数2：消息内容</span></span><br><span class="line">	<span class="comment">//	参数3：标题</span></span><br><span class="line">	<span class="comment">//	参数4：对话框的类型</span></span><br><span class="line">    HeapFree(hHeap, <span class="number">0</span>, lpMem);</span><br><span class="line">    HeapDestroy(hHeap);</span><br><span class="line">    ExitProcess(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  __debugbreak();</span><br><span class="line">  sub_401000(v3 + <span class="number">4</span>, lpMem);</span><br><span class="line">  ExitProcess(<span class="number">0xFFFFFFFF</span>);</span><br></pre></td></tr></table></figure>
+<p>查看<code>sub_401000</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">v2 = dword_409B38;</span><br><span class="line"> v3 = a2 + <span class="number">1</span> + <span class="built_in">strlen</span>((<span class="keyword">const</span> <span class="keyword">char</span> *)(a2 + <span class="number">1</span>)) + <span class="number">1</span>;</span><br><span class="line"> v4 = <span class="number">0</span>;</span><br><span class="line"> result = ((v3 - (a2 + <span class="number">2</span>)) &gt;&gt; <span class="number">2</span>) + <span class="number">1</span>;</span><br><span class="line"> <span class="keyword">if</span> ( result )</span><br><span class="line"> &#123;</span><br><span class="line">   <span class="keyword">do</span></span><br><span class="line">     *(_DWORD *)(a2 + <span class="number">4</span> * v4++) ^= v2;</span><br><span class="line">   <span class="keyword">while</span> ( v4 &lt; result );</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+<p>找v2：小端序，可以直接转换为字节查看<br><img src="https://img-blog.csdnimg.cn/9781a089a7234ec2958f1a81aaa7fdcc.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/f337fa9335404c3187de35645b08a626.png" alt="在这里插入图片描述"><br>写脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">lpMen=[<span class="number">0xBB</span>,<span class="number">0xCC</span>,<span class="number">0xA0</span>,<span class="number">0xBC</span>,<span class="number">0xDC</span>,<span class="number">0xD1</span>,<span class="number">0xBE</span>,<span class="number">0xB8</span>,<span class="number">0xCD</span>,<span class="number">0xCF</span>,<span class="number">0xBE</span>,<span class="number">0xAE</span>,<span class="number">0xD2</span>,<span class="number">0xC4</span>,<span class="number">0xAB</span>,<span class="number">0x82</span>,</span><br><span class="line"><span class="number">0xD2</span>,<span class="number">0xD9</span>,<span class="number">0x93</span>,<span class="number">0xB3</span>,<span class="number">0xD4</span>,<span class="number">0xDE</span>,<span class="number">0x93</span>,<span class="number">0xA9</span>,<span class="number">0xD3</span>,<span class="number">0xCB</span>,<span class="number">0xB8</span>,<span class="number">0x82</span>,<span class="number">0xD3</span>,<span class="number">0xCB</span>,<span class="number">0xBE</span>,<span class="number">0xB9</span>,</span><br><span class="line"><span class="number">0x9A</span>,<span class="number">0xD7</span>,<span class="number">0xCC</span>,<span class="number">0xDD</span>,<span class="number">0x24</span>,<span class="number">0x00</span>,<span class="number">0x00</span>,<span class="number">0x00</span>,<span class="number">0xBB</span>,<span class="number">0xAA</span>,<span class="number">0xCC</span>,<span class="number">0xDD</span>,<span class="number">0x00</span>,<span class="number">0x00</span>,<span class="number">0x00</span>,<span class="number">0x00</span>]</span><br><span class="line"></span><br><span class="line">i=<span class="number">0</span></span><br><span class="line">v2=[<span class="number">0xBB</span>,<span class="number">0xAA</span>,<span class="number">0xCC</span>,<span class="number">0xDD</span>]</span><br><span class="line">flag=[]</span><br><span class="line"><span class="keyword">while</span> i&lt;<span class="built_in">len</span>(lpMen):</span><br><span class="line">    <span class="built_in">str</span>=<span class="built_in">chr</span>(lpMen[i]^v2[i%<span class="number">4</span>])</span><br><span class="line">    flag.append(<span class="built_in">str</span>)</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>.join(flag))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;reversing_is_not_that_hard!&#125;</span><br></pre></td></tr></table></figure>
+
+<div id="2">OD调试</div>
+
+<p>方法二：OD调试<br>在<code>IsDebuggerPresent()</code>段首处下断<br><img src="https://img-blog.csdnimg.cn/b2ded7a9a1bf4195a293f98b2f6deffd.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>在<code>ints</code>处会跳出乱码，下断点<br><img src="https://img-blog.csdnimg.cn/c1cb9e113e1740e0a413a4edbae17ec5.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>在两个跳的地方下断，F8运行<br><img src="https://img-blog.csdnimg.cn/691f639fa5d746efa276cad864e9dbac.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<div id="3">IDA分析修改代码</div>
+
+<p>IDA分析修改代码：jnz改jmp<br>修改步骤：<code>Edit &gt; Patch program &gt; Assemble</code><br><img src="https://img-blog.csdnimg.cn/b894aaab5f664ccba1c2497f1e686593.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>int3改nop，否则程序会中断<br>jmp后面改成<code>loc_4010B9</code>,就是跳出lpMen的函数</p>
+<p><img src="https://img-blog.csdnimg.cn/cc072f35afac43ccb8d97f0d897a8df2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAWEZveF8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>最后保存<code>Edit &gt; Patch program &gt; Apply pathes to input file </code></p>
+
+</div> 
+
+<script>
+    window.onload = detectors();
+</script>
+    <div class="post-footer">
+    <div class="h-line-primary"></div>
+    <nav class="post-nav">
+        <div class="prev-item">
+           
+        </div>
+        <div class="next-item">
+            
+                <div class="icon arrow-right"></div>
+                <div class="post-link">
+                  <a href="/2021/10/23/getit/">Next</a>  
+                </div>  
+            
+        </div>
+    </nav>
+</div>
+
+  
+</article>
+        </div>
+      </div>
+      
+      <div class="footer">
+    <div class="flex-container">
+        <div class="footer-text">
+            
+                Customized content.
+                <br>
+            
+            
+                © XFox | 
+            
+            
+                Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://hexo.io/">Frame</a>
+                
+        </div>
+    </div>
+</div>
+
+    </div>
+
+  </body>
+</html>
